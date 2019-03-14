@@ -1,10 +1,7 @@
 package org.happybean.spring.config;
 
 import org.happybean.bean.Person;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.*;
 
 /**
  * @author wgt
@@ -24,15 +21,17 @@ public class SpringConfig {
     @Scope("prototype")
     public Person person1() {
         //@Bean 将对象注册到容器 name默认为方法名
-        //默认单例注册到容器
+        //默认单例注册到容器，饿汉模式
         //@Scope("prototype")等同于配置文件
 
         return new Person("spring1", 20);
     }
 
+    @Lazy
     @Bean(name = "person2-name")
     public Person person2() {
         //@Bean 将对象注册到容器 id默认为方法名
+        //使用@Lazy将单例模式下的bean改为懒加载模式（懒汉模式）
         return new Person("spring2", 21);
     }
 }

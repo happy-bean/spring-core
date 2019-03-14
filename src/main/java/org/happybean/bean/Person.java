@@ -12,11 +12,15 @@ public class Person {
     private int age;
 
     public Person() {
+        System.out.println("创建Person对象");
     }
 
     public Person(String name, int age) {
         this.name = name;
         this.age = age;
+        //单例模式时：默认容器加载时就会调用构造函数创建bean
+        //多实例模式时：容器不会调用创建bean，在获取bean对象时才会创建
+        System.out.println("创建Person对象");
     }
 
     public String getName() {

@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!--基于配置方式 id,name 要保证唯一性-->
+    <!--基于配置方式 id,name 要保证唯一性，默认单例模式注册，可以在bean标签中定义 scope="prototype"定义为多实例模式-->
     <bean class="org.happybean.bean.Person" name="person1" id="person1-id" >
         <property name="name" value="spring1"/>
         <property name="age" value="20"/>

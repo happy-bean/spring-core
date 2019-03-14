@@ -19,4 +19,10 @@ public interface IocRegister {
 
     //组件注册：配置类扫描方式
     void annotationScan();
+
+    //组件注册：条件注册方式
+    void condition();
+
+    //组件注册：手动注册
+    void manual();
 }

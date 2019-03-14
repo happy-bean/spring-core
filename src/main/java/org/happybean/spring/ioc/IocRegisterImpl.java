@@ -2,7 +2,12 @@ package org.happybean.spring.ioc;
 
 import org.happybean.bean.Person;
 import org.happybean.spring.config.SpringConfig;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.beans.factory.support.BeanDefinitionBuilder;
+import org.springframework.beans.factory.support.BeanDefinitionRegistry;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -87,6 +92,38 @@ public class IocRegisterImpl implements IocRegister {
     public void annotationScan() {
         //加载配置类 此时的配置类等同于xml配置文件
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringConfig.class);
+
+        //获取bean 在容器中的 name
+        String[] beanNames = applicationContext.getBeanDefinitionNames();
+        for (String name : beanNames) {
+            System.out.println(name);
+        }
+    }
+
+    @Override
+    public void condition() {
+        //加载配置类 此时的配置类等同于xml配置文件
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringConfig.class);
+        //获取bean 在容器中的 name
+        String[] beanNames = applicationContext.getBeanDefinitionNames();
+        for (String name : beanNames) {
+            System.out.println(name);
+        }
+    }
+
+    @Override
+    public void manual() {
+        //加载配置类 此时的配置类等同于xml配置文件
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext();
+
+        //获取bean工厂
+        ConfigurableApplicationContext configurableContext = (ConfigurableApplicationContext) applicationContext;
+        BeanDefinitionRegistry registry = (DefaultListableBeanFactory) configurableContext.getBeanFactory();
+        //bean builder
+        BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(Person.class);
+        BeanDefinition beanDefinition = beanDefinitionBuilder.getBeanDefinition();
+        //手动注册bean
+        registry.registerBeanDefinition("manual", beanDefinition);
 
         //获取bean 在容器中的 name
         String[] beanNames = applicationContext.getBeanDefinitionNames();

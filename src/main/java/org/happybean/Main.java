@@ -17,8 +17,10 @@ public class Main {
     public static void ioc() {
         IocRegister iocTest = new IocRegisterImpl();
         //iocTest.xmlConfig();
-        iocTest.annotationConfig();
+        //iocTest.annotationConfig();
         //iocTest.xmlScan();
         //iocTest.annotationScan();
+        //iocTest.condition();
+        iocTest.manual();
     }
 }

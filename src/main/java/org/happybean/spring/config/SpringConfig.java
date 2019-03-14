@@ -1,6 +1,7 @@
 package org.happybean.spring.config;
 
 import org.happybean.bean.Person;
+import org.happybean.condition.OsCondition;
 import org.springframework.context.annotation.*;
 
 /**
@@ -33,5 +34,12 @@ public class SpringConfig {
         //@Bean 将对象注册到容器 id默认为方法名
         //使用@Lazy将单例模式下的bean改为懒加载模式（懒汉模式）
         return new Person("spring2", 21);
+    }
+
+    @Bean
+    @Conditional(OsCondition.class)
+    public Person steveJobs() {
+        //@Conditional 满足某种条件下才会注册bean
+        return new Person("steveJobs", 56);
     }
 }

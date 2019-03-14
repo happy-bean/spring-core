@@ -1,7 +1,7 @@
 package org.happybean;
 
-import org.happybean.spring.ioc.Ioc;
-import org.happybean.spring.ioc.IocImpl;
+import org.happybean.spring.ioc.IocRegister;
+import org.happybean.spring.ioc.IocRegisterImpl;
 
 /**
  * @author wgt
@@ -15,8 +15,10 @@ public class Main {
 
     //组件注册
     public static void ioc() {
-        Ioc iocTest = new IocImpl();
-        iocTest.xmlConfig();
-        iocTest.annotationConfig();
+        IocRegister iocTest = new IocRegisterImpl();
+        //iocTest.xmlConfig();
+        //iocTest.annotationConfig();
+        //iocTest.xmlScan();
+        iocTest.annotationScan();
     }
 }

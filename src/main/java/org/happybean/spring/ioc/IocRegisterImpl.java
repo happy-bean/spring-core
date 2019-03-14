@@ -11,7 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @date 2019-03-14
  * @description ioc组件注册
  **/
-public class IocImpl implements Ioc {
+public class IocRegisterImpl implements IocRegister {
 
     @Override
     public void xmlConfig() {
@@ -54,6 +54,30 @@ public class IocImpl implements Ioc {
         //多个相同类型bean时，可以使用该方法获取
         Person person4 = applicationContext.getBean("person1", Person.class);
         System.out.println("person4:" + person4);
+
+        //获取bean 在容器中的 name
+        String[] beanNames = applicationContext.getBeanDefinitionNames();
+        for (String name : beanNames) {
+            System.out.println(name);
+        }
+    }
+
+    @Override
+    public void xmlScan() {
+        //加载配置文件
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-scan.xml");
+
+        //获取bean 在容器中的 name
+        String[] beanNames = applicationContext.getBeanDefinitionNames();
+        for (String name : beanNames) {
+            System.out.println(name);
+        }
+    }
+
+    @Override
+    public void annotationScan() {
+        //加载配置类 此时的配置类等同于xml配置文件
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringConfig.class);
 
         //获取bean 在容器中的 name
         String[] beanNames = applicationContext.getBeanDefinitionNames();

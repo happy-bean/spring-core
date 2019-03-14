@@ -1,5 +1,6 @@
 package org.happybean.spring.config;
 
+import org.happybean.bean.Animal;
 import org.happybean.bean.Person;
 import org.happybean.condition.OsCondition;
 import org.springframework.context.annotation.*;
@@ -11,7 +12,10 @@ import org.springframework.context.annotation.*;
  **/
 @Configuration
 @ComponentScan(value = {"org.happybean.controller", "org.happybean.service", "org.happybean.repository"})
+@Import({Animal.class})
 public class SpringConfig {
+
+    //@Import 可以快速将某个类注册到容器
 
     //@Configuration 告诉spring这是一个配置类
 

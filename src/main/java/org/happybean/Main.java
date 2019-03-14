@@ -21,6 +21,7 @@ public class Main {
         //iocTest.xmlScan();
         //iocTest.annotationScan();
         //iocTest.condition();
-        iocTest.manual();
+        //iocTest.manual();
+        iocTest.imports();
     }
 }

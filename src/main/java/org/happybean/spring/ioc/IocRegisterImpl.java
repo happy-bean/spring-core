@@ -131,4 +131,15 @@ public class IocRegisterImpl implements IocRegister {
             System.out.println(name);
         }
     }
+
+    @Override
+    public void imports() {
+        //加载配置类 此时的配置类等同于xml配置文件
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringConfig.class);
+        //获取bean 在容器中的 name
+        String[] beanNames = applicationContext.getBeanDefinitionNames();
+        for (String name : beanNames) {
+            System.out.println(name);
+        }
+    }
 }

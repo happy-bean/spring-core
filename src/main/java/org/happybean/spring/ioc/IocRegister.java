@@ -23,6 +23,9 @@ public interface IocRegister {
     //组件注册：条件注册方式
     void condition();
 
-    //组件注册：手动注册
+    //组件注册：手动注册方式
     void manual();
+
+    //组件注册：快速注册方式
+    void imports();
 }

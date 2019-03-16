@@ -28,4 +28,10 @@ public interface IocRegister {
 
     //组件注册：快速注册方式
     void imports();
+
+    //组件注册：批量导入方式
+    void importSelector();
+
+    //组件注册：@Import 手动注册方式
+    void importBeanDefinitionRegistrar();
 }

@@ -3,6 +3,8 @@ package org.happybean.spring.config;
 import org.happybean.bean.Animal;
 import org.happybean.bean.Person;
 import org.happybean.condition.OsCondition;
+import org.happybean.spring.importBeanDefinitionRegistrar.SpringImportBeanDefinitionRegistrar;
+import org.happybean.spring.importSelector.SpringImportSelector;
 import org.springframework.context.annotation.*;
 
 /**
@@ -12,10 +14,13 @@ import org.springframework.context.annotation.*;
  **/
 @Configuration
 @ComponentScan(value = {"org.happybean.controller", "org.happybean.service", "org.happybean.repository"})
-@Import({Animal.class})
+//@Import({Animal.class})
+//@Import(SpringImportSelector.class)
+@Import(SpringImportBeanDefinitionRegistrar.class)
 public class SpringConfig {
 
-    //@Import 可以快速将某个类注册到容器
+    //@Import 可以快速将某个类注册到容器，可以写多个class bean 默认name是类全名 例如：org.happybean.bean.Person
+
 
     //@Configuration 告诉spring这是一个配置类
 

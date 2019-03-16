@@ -22,6 +22,8 @@ public class Main {
         //iocTest.annotationScan();
         //iocTest.condition();
         //iocTest.manual();
-        iocTest.imports();
+        //iocTest.imports();
+        //iocTest.importSelector();
+        iocTest.importBeanDefinitionRegistrar();
     }
 }

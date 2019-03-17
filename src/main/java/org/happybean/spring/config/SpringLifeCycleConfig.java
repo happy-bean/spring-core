@@ -2,6 +2,7 @@ package org.happybean.spring.config;
 
 import org.happybean.bean.Animal;
 import org.happybean.bean.Person;
+import org.happybean.bean.Plant;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
 
@@ -26,5 +27,10 @@ public class SpringLifeCycleConfig {
     @Bean
     public Animal animal() {
         return new Animal();
+    }
+
+    @Bean
+    public Plant plant(){
+        return new Plant();
     }
 }

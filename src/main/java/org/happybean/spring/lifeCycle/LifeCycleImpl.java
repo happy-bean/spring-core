@@ -43,6 +43,9 @@ public class LifeCycleImpl implements LifeCycle {
 
     @Override
     public void JSR250() {
-
+        //加载配置类 初始化容器
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringLifeCycleConfig.class);
+        //关闭容器
+        ((AnnotationConfigApplicationContext) applicationContext).close();
     }
 }

@@ -34,6 +34,7 @@ public class Main {
         LifeCycle lifeCycle = new LifeCycleImpl();
         //lifeCycle.xmlLifeCycle();
         //lifeCycle.beanLifeCycle();
-        lifeCycle.implementsInterface();
+        //lifeCycle.implementsInterface();
+        lifeCycle.JSR250();
     }
 }

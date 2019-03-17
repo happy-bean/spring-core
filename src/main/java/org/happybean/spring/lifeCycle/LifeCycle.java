@@ -26,6 +26,11 @@ public interface LifeCycle {
 
     /**
      * 自定bean初始化销毁：spring jsr-250注释
-     * */
+     */
     void JSR250();
+
+    /***
+     * 自定bean初始化销毁：实现BeanPostProcessor接口（置后调用）
+     * */
+    void beanPostProcessor();
 }

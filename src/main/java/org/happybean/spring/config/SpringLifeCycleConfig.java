@@ -3,7 +3,10 @@ package org.happybean.spring.config;
 import org.happybean.bean.Animal;
 import org.happybean.bean.Person;
 import org.happybean.bean.Plant;
+import org.happybean.spring.processor.SpringBeanPostProcessor;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Scope;
 
 /**
@@ -13,6 +16,8 @@ import org.springframework.context.annotation.Scope;
  * 创建->初始化->销毁
  * spring容器管理bean的生命周期
  **/
+@Import(SpringBeanPostProcessor.class)
+@Configuration
 public class SpringLifeCycleConfig {
 
     //自定义初始化销毁方法
@@ -30,7 +35,7 @@ public class SpringLifeCycleConfig {
     }
 
     @Bean
-    public Plant plant(){
+    public Plant plant() {
         return new Plant();
     }
 }

@@ -35,6 +35,7 @@ public class Main {
         //lifeCycle.xmlLifeCycle();
         //lifeCycle.beanLifeCycle();
         //lifeCycle.implementsInterface();
-        lifeCycle.JSR250();
+        //lifeCycle.JSR250();
+        lifeCycle.beanPostProcessor();
     }
 }

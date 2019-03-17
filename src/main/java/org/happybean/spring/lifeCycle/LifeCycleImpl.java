@@ -48,4 +48,12 @@ public class LifeCycleImpl implements LifeCycle {
         //关闭容器
         ((AnnotationConfigApplicationContext) applicationContext).close();
     }
+
+    @Override
+    public void beanPostProcessor() {
+        //加载配置类 初始化容器
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringLifeCycleConfig.class);
+        //关闭容器
+        ((AnnotationConfigApplicationContext) applicationContext).close();
+    }
 }

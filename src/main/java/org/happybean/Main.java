@@ -4,6 +4,8 @@ import org.happybean.spring.ioc.IocRegister;
 import org.happybean.spring.ioc.IocRegisterImpl;
 import org.happybean.spring.lifeCycle.LifeCycle;
 import org.happybean.spring.lifeCycle.LifeCycleImpl;
+import org.happybean.spring.value.PropertyValues;
+import org.happybean.spring.value.PropertyValuesImpl;
 
 /**
  * @author wgt
@@ -13,7 +15,8 @@ import org.happybean.spring.lifeCycle.LifeCycleImpl;
 public class Main {
     public static void main(String[] args) {
         //ioc();
-        lifeCyle();
+        //lifeCyle();
+        propertyValues();
     }
 
     //组件注册
@@ -30,12 +33,17 @@ public class Main {
         iocTest.importBeanDefinitionRegistrar();
     }
 
-    public static void lifeCyle(){
+    public static void lifeCyle() {
         LifeCycle lifeCycle = new LifeCycleImpl();
         //lifeCycle.xmlLifeCycle();
         //lifeCycle.beanLifeCycle();
         //lifeCycle.implementsInterface();
         //lifeCycle.JSR250();
         lifeCycle.beanPostProcessor();
+    }
+
+    public static void propertyValues() {
+        PropertyValues propertyValues = new PropertyValuesImpl();
+        propertyValues.annotationConfig();
     }
 }

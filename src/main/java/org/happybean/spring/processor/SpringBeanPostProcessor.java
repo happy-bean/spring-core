@@ -10,6 +10,8 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
  **/
 public class SpringBeanPostProcessor implements BeanPostProcessor {
 
+    //spring底层也大量使用BeanPostProcessor类
+    //bean的赋值、 其它组件注入、@Autowired、生命周期的一些注解等
     /**
      * bea初始化之前调用
      */

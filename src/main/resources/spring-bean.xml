@@ -4,10 +4,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!--基于配置方式 id,name 要保证唯一性，默认单例模式注册，可以在bean标签中定义 scope="prototype"定义为多实例模式-->
-    <bean class="org.happybean.bean.Person" name="person1" id="person1-id">
+    <bean class="org.happybean.bean.Person" name="person1" id="person1-id" init-method="init" destroy-method="destory">
         <property name="name" value="spring1"/>
         <property name="age" value="20"/>
     </bean>
+    <!--init-method和destroy-method用来指定自定义初始化和销毁方法-->
 
     <!--lazy-init属性可以将单例模式下的bean改为懒加载模式-->
     <bean class="org.happybean.bean.Person" name="person2" id="person2-id" lazy-init="true">

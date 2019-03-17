@@ -2,6 +2,8 @@ package org.happybean;
 
 import org.happybean.spring.ioc.IocRegister;
 import org.happybean.spring.ioc.IocRegisterImpl;
+import org.happybean.spring.lifeCycle.LifeCycle;
+import org.happybean.spring.lifeCycle.LifeCycleImpl;
 
 /**
  * @author wgt
@@ -10,7 +12,8 @@ import org.happybean.spring.ioc.IocRegisterImpl;
  **/
 public class Main {
     public static void main(String[] args) {
-        ioc();
+        //ioc();
+        lifeCyle();
     }
 
     //组件注册
@@ -25,5 +28,12 @@ public class Main {
         //iocTest.imports();
         //iocTest.importSelector();
         iocTest.importBeanDefinitionRegistrar();
+    }
+
+    public static void lifeCyle(){
+        LifeCycle lifeCycle = new LifeCycleImpl();
+        //lifeCycle.xmlLifeCycle();
+        //lifeCycle.beanLifeCycle();
+        lifeCycle.implementsInterface();
     }
 }

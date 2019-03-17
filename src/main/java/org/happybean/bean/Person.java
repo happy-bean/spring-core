@@ -15,7 +15,15 @@ public class Person {
         System.out.println("创建Person对象");
     }
 
-    public Person(String name, int age) {
+    public void init(){
+        System.out.println("对象初始化");
+    }
+
+    public void destory(){
+        System.out.println("对象销毁");
+    }
+
+  public Person(String name, int age) {
         this.name = name;
         this.age = age;
         //单例模式时：默认容器加载时就会调用构造函数创建bean

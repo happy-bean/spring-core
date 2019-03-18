@@ -1,5 +1,7 @@
 package org.happybean;
 
+import org.happybean.spring.ioc.Autowire;
+import org.happybean.spring.ioc.AutowireImpl;
 import org.happybean.spring.ioc.IocRegister;
 import org.happybean.spring.ioc.IocRegisterImpl;
 import org.happybean.spring.lifeCycle.LifeCycle;
@@ -16,7 +18,8 @@ public class Main {
     public static void main(String[] args) {
         //ioc();
         //lifeCyle();
-        propertyValues();
+        //propertyValues();
+        autowired();
     }
 
     //组件注册
@@ -45,5 +48,10 @@ public class Main {
     public static void propertyValues() {
         PropertyValues propertyValues = new PropertyValuesImpl();
         propertyValues.annotationConfig();
+    }
+
+    private static void autowired() {
+        Autowire autowire = new AutowireImpl();
+        autowire.autowired();
     }
 }

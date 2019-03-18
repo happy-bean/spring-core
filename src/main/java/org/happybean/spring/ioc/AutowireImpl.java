@@ -23,4 +23,20 @@ public class AutowireImpl implements Autowire {
         //SpringService service = applicationContext.getBean(SpringService.class);
         //System.out.println((controller.getSpringService() == service));
     }
+
+    @Override
+    public void jsr250() {
+        //加载配置类 此时的配置类等同于xml配置文件
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringAutowiredConfig.class);
+        SpringService service = applicationContext.getBean(SpringService.class);
+        service.printRepository();
+    }
+
+    @Override
+    public void jsr330() {
+        //加载配置类 此时的配置类等同于xml配置文件
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringAutowiredConfig.class);
+        SpringController controller = applicationContext.getBean(SpringController.class);
+        controller.printService();
+    }
 }

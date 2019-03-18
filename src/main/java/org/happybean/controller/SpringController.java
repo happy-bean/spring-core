@@ -1,9 +1,12 @@
 package org.happybean.controller;
 
+import org.happybean.bean.Person;
 import org.happybean.service.SpringService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+
+import javax.inject.Inject;
 
 /**
  * @author wgt
@@ -33,11 +36,21 @@ public class SpringController {
     @Autowired
     private SpringService springService4;
 
+    //@Inject需要先导入javax.inject依赖
+    //功能和@Autowired类似，不支持@Autowired(required = false)
+    @Inject
+    private SpringService springService5;
+
+    @Autowired(required = false)
+    private Person person;
+
     public void printService() {
         System.out.println(this.springService);
         System.out.println(this.springService2);
         System.out.println(this.springService3);
         System.out.println(this.springService4);
+        System.out.println(this.springService5);
+        System.out.println(this.person);
     }
 
     public SpringService getSpringService() {

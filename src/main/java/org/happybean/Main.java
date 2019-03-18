@@ -36,6 +36,7 @@ public class Main {
         iocTest.importBeanDefinitionRegistrar();
     }
 
+    //生命周期
     public static void lifeCyle() {
         LifeCycle lifeCycle = new LifeCycleImpl();
         //lifeCycle.xmlLifeCycle();
@@ -45,13 +46,17 @@ public class Main {
         lifeCycle.beanPostProcessor();
     }
 
+    //属性赋值
     public static void propertyValues() {
         PropertyValues propertyValues = new PropertyValuesImpl();
         propertyValues.annotationConfig();
     }
 
+    //自动装配
     private static void autowired() {
         Autowire autowire = new AutowireImpl();
-        autowire.autowired();
+        //autowire.autowired();
+        //autowire.jsr250();
+        autowire.jsr330();
     }
 }

@@ -56,7 +56,7 @@ public class Main {
     private static void autowired() {
         Autowire autowire = new AutowireImpl();
         //autowire.autowired();
-        //autowire.jsr250();
-        autowire.jsr330();
+        autowire.jsr250();
+        //autowire.jsr330();
     }
 }

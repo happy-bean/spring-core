@@ -36,7 +36,7 @@ public class SpringController {
     @Autowired
     private SpringService springService4;
 
-    //@Inject需要先导入javax.inject依赖
+    //@Inject需要先导入javax.inject依赖,java规范
     //功能和@Autowired类似，不支持@Autowired(required = false)
     @Inject
     private SpringService springService5;

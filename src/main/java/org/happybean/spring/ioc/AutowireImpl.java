@@ -28,8 +28,11 @@ public class AutowireImpl implements Autowire {
     public void jsr250() {
         //加载配置类 此时的配置类等同于xml配置文件
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringAutowiredConfig.class);
-        SpringService service = applicationContext.getBean(SpringService.class);
+        SpringService service = (SpringService) applicationContext.getBean("springService");
         service.printRepository();
+
+        SpringService service6 = (SpringService) applicationContext.getBean("springService6");
+        service6.printRepository();
     }
 
     @Override

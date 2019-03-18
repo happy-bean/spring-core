@@ -22,7 +22,7 @@ public class SpringAutowiredConfig {
 
     //自定义组件如果想使用spring底层组件，如ApplicationContext，BeanFactory等
     //可以实现 XXXAware 来获取相应的组件 如ApplicationContextAware，在对象创建时，会调用相应实现方法，装配相应组件
-    //XXXAware 都有对应的XXXProcessor进行处理 
+    //XXXAware 都有对应的XXXProcessor进行处理
     @Bean
     public SpringService springService2() {
         return new SpringService();

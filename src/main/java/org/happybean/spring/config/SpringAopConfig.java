@@ -1,7 +1,7 @@
 package org.happybean.spring.config;
 
 import org.happybean.service.Calculator;
-import org.happybean.service.LogApect;
+import org.happybean.service.LogAspect;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
@@ -23,7 +23,7 @@ public class SpringAopConfig {
     }
 
     @Bean
-    public LogApect logApect() {
-        return new LogApect();
+    public LogAspect logApect() {
+        return new LogAspect();
     }
 }

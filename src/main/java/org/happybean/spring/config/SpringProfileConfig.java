@@ -3,10 +3,11 @@ package org.happybean.spring.config;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.EmbeddedValueResolverAware;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.util.StringValueResolver;
 
 import javax.sql.DataSource;
@@ -18,8 +19,12 @@ import java.beans.PropertyVetoException;
  * @description
  **/
 @Configuration
+@EnableTransactionManagement
 @PropertySource(value = {"classpath:mysql.properties"})
+@Import(org.happybean.service.UserServiceImpl.class)
 public class SpringProfileConfig implements EmbeddedValueResolverAware {
+
+    //@EnableTransactionManagement 开启基于注解的事务管理，还必须声明事务管理器
 
     @Value("${db.user}")
     private String user;
@@ -56,5 +61,19 @@ public class SpringProfileConfig implements EmbeddedValueResolverAware {
     @Override
     public void setEmbeddedValueResolver(StringValueResolver stringValueResolver) {
         this.stringValueResolver = stringValueResolver;
+    }
+
+    //spring对@Configuration的类会特殊处理，多次调用@bean标识的方法也是从容器中直接获取
+
+    @Bean
+    public JdbcTemplate jdbcTemplate(DataSource devDataSource) {
+        JdbcTemplate template = new JdbcTemplate(devDataSource);
+        return template;
+    }
+
+    //声明注册事务管理器
+    @Bean
+    public PlatformTransactionManager transactionManager(DataSource devDataSource) {
+        return new DataSourceTransactionManager(devDataSource);
     }
 }

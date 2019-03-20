@@ -10,6 +10,8 @@ import org.happybean.spring.lifeCycle.LifeCycle;
 import org.happybean.spring.lifeCycle.LifeCycleImpl;
 import org.happybean.spring.profile.Profiles;
 import org.happybean.spring.profile.ProfilesImpl;
+import org.happybean.spring.transaction.DbTransaction;
+import org.happybean.spring.transaction.DbTransactionImpl;
 import org.happybean.spring.value.PropertyValues;
 import org.happybean.spring.value.PropertyValuesImpl;
 
@@ -25,7 +27,8 @@ public class Main {
         //propertyValues();
         //autowired();
         //profile();
-        aop();
+        //aop();
+        transaction();
     }
 
     //组件注册
@@ -72,8 +75,15 @@ public class Main {
         profiles.profile();
     }
 
-    private static void aop(){
+    //切面编程
+    private static void aop() {
         Aop aop = new AopImpl();
         aop.apect();
+    }
+
+    //事务管理
+    private static void transaction() {
+        DbTransaction transaction = new DbTransactionImpl();
+        transaction.transaction();
     }
 }

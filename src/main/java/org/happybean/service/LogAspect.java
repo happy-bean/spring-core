@@ -15,7 +15,7 @@ import org.aspectj.lang.annotation.*;
  **/
 //@Aspect 告诉spring这是一个切面类
 @Aspect
-public class LogApect {
+public class LogAspect {
 
     //公共切点
     @Pointcut("execution(public int org.happybean.service.Calculator.div(int,int))")

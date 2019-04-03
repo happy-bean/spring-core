@@ -12,7 +12,7 @@ import java.io.IOException;
  * @date 2019-04-03
  * @description
  **/
-@WebServlet("/hello")
+//@WebServlet("/hello")
 public class SimpleServlet extends HttpServlet {
 
     @Override
@@ -21,4 +21,5 @@ public class SimpleServlet extends HttpServlet {
         //xml配置方式这里不做讲解
         resp.getWriter().write("hello");
     }
+
 }
